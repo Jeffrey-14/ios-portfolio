@@ -58,6 +58,16 @@ const projects = [
 
   {
     id: 4,
+    title: 'Swift Calculator',
+    description: 'A clean, functional calculator app built with SwiftUI for iOS. Features basic arithmetic operations, decimal support, error handling, and follows iOS design guidelines.',
+    tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS'],
+    image: '/api/placeholder/400/250',
+    github: 'https://github.com/Jeffrey-14/swift-calculator',
+    appstore: 'https://github.com/user-attachments/assets/4fe0f8a4-e633-48af-8bfa-35e84f8daa48' // Video demo link
+  },
+
+  {
+    id: 5,
     title: 'FitTrack',
     description: 'Fitness tracking app with HealthKit integration, custom workout plans, and social sharing features.',
     tech: ['SwiftUI', 'HealthKit', 'Firebase', 'Charts'],
