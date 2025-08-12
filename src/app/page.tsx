@@ -137,10 +137,10 @@ export default function Portfolio() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-black/20 backdrop-blur-md z-50 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-1">
           <div className="flex justify-between items-center py-4">
             <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              iOS Engineer
+              Jeffrey Techie-Menson
             </div>
             <div className="hidden md:flex space-x-8">
               {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
