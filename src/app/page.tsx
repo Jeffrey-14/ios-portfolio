@@ -1,7 +1,7 @@
 // src/app/page.tsx
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ChevronDownIcon, EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline'
 import { 
   SwiftIcon, 
@@ -26,100 +26,113 @@ const skills = [
   { name: 'App Store', level: 85, icon: AppStoreIcon }
 ]
 
-const projects = [
-  {
-    id: 1,
-    title: 'TaskMaster Pro',
-    description: 'A comprehensive task management app built with SwiftUI and Core Data. Features include custom animations, dark mode support, and iCloud sync.',
-    tech: ['SwiftUI', 'Core Data', 'CloudKit', 'Combine'],
-    image: '/api/placeholder/400/250',
-    github: 'https://github.com/Jeffrey-14',
-    appstore: 'https://apps.apple.com/app/taskmaster'
-  },
-  {
-    id: 2,
-    title: 'WeatherWise',
-    description: 'Real-time weather application with beautiful animations and location-based forecasts. Integrated with OpenWeather API.',
-    tech: ['UIKit', 'Core Location', 'Alamofire', 'Lottie'],
-    image: '/api/placeholder/400/250',
-    github: 'https://github.com/Jeffrey-14',
-    appstore: 'https://apps.apple.com/app/weatherwise'
-  },
-
-  {
-    id: 3,
-    title: 'Professional Headshot Editor',
-    description: 'A web-based image editing tool built with HTML5 Canvas API, JavaScript, and CSS. Features real-time image enhancement, professional cropping, and client-side processing for privacy.',
-    tech: ['JavaScript', 'HTML5 Canvas', 'CSS3', 'File API'],
-    image: '/api/placeholder/400/250',
-    github: 'https://jeffrey-14.github.io/headshot-editor/',
-    appstore: '#' // You can remove this line or point to a live demo
-  },
-
-  {
-    id: 4,
-    title: 'Swift Calculator',
-    description: 'A clean, functional calculator app built with SwiftUI for iOS. Features basic arithmetic operations, decimal support, error handling, and follows iOS design guidelines.',
-    tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS'],
-    image: '/api/placeholder/400/250',
-    github: 'https://github.com/Jeffrey-14/swift-calculator',
-    appstore: 'https://github.com/user-attachments/assets/4fe0f8a4-e633-48af-8bfa-35e84f8daa48' // Video demo link
-  },
-
-  {
-    id: 5,
-    title: 'FitTrack',
-    description: 'Fitness tracking app with HealthKit integration, custom workout plans, and social sharing features.',
-    tech: ['SwiftUI', 'HealthKit', 'Firebase', 'Charts'],
-    image: '/api/placeholder/400/250',
-    github: 'https://github.com/Jeffrey-14',
-    appstore: 'https://apps.apple.com/app/fittrack'
-  }
-]
-
-const experience = [
-  {
-    company: 'TechCorp Inc.',
-    position: 'Senior iOS Developer',
-    duration: '2022 - Present',
-    description: 'Lead iOS development team of 4 developers. Built and maintained 3 production apps with 500K+ downloads.',
-    achievements: [
-      'Increased app performance by 40% through code optimization',
-      'Implemented CI/CD pipeline reducing deployment time by 60%',
-      'Mentored junior developers and conducted code reviews'
-    ]
-  },
-  {
-    company: 'StartupX',
-    position: 'iOS Developer',
-    duration: '2020 - 2022',
-    description: 'Developed MVP and scaled iOS application from 0 to 100K users. Worked closely with product and design teams.',
-    achievements: [
-      'Built core app architecture from scratch',
-      'Integrated payment systems and push notifications',
-      'Achieved 4.8 star rating on App Store'
-    ]
-  },
-  {
-    company: 'Freelance',
-    position: 'iOS Consultant',
-    duration: '2018 - 2020',
-    description: 'Provided iOS development services to various clients, from startups to established businesses.',
-    achievements: [
-      'Delivered 8+ successful app projects',
-      'Specialized in SwiftUI early adoption',
-      'Built long-term client relationships'
-    ]
-  }
-]
-
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('about')
+  const [skillsLoaded, setSkillsLoaded] = useState(false)
   const [contactForm, setContactForm] = useState({
     name: '',
     email: '',
     message: ''
+
   })
+  
+  // Add this useEffect to trigger animations when component mounts
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSkillsLoaded(true)
+    }, 500) // Start animations after 500ms
+    
+    return () => clearTimeout(timer)
+  }, [])
+
+  const projects = [
+    {
+      id: 1,
+      title: 'TaskMaster Pro',
+      description: 'A comprehensive task management app built with SwiftUI and Core Data. Features include custom animations, dark mode support, and iCloud sync.',
+      tech: ['SwiftUI', 'Core Data', 'CloudKit', 'Combine'],
+      image: '/api/placeholder/400/250',
+      github: 'https://github.com/Jeffrey-14',
+      appstore: 'https://apps.apple.com/app/taskmaster'
+    },
+
+    {
+      id: 2,
+      title: 'WeatherWise',
+      description: 'Real-time weather application with beautiful animations and location-based forecasts. Integrated with OpenWeather API.',
+      tech: ['UIKit', 'Core Location', 'Alamofire', 'Lottie'],
+      image: '/api/placeholder/400/250',
+      github: 'https://github.com/Jeffrey-14',
+      appstore: 'https://apps.apple.com/app/weatherwise'
+    },
+
+    {
+      id: 3,
+      title: 'Professional Headshot Editor',
+      description: 'A web-based image editing tool built with HTML5 Canvas API, JavaScript, and CSS. Features real-time image enhancement, professional cropping, and client-side processing for privacy.',
+      tech: ['JavaScript', 'HTML5 Canvas', 'CSS3', 'File API'],
+      image: '/api/placeholder/400/250',
+      github: 'https://jeffrey-14.github.io/headshot-editor/',
+      appstore: '#' // You can remove this line or point to a live demo
+    },
+
+    {
+      id: 4,
+      title: 'Swift Calculator',
+      description: 'A clean, functional calculator app built with SwiftUI for iOS. Features basic arithmetic operations, decimal support, error handling, and follows iOS design guidelines.',
+      tech: ['Swift', 'SwiftUI', 'Xcode', 'iOS'],
+      image: '/api/placeholder/400/250',
+      github: 'https://github.com/Jeffrey-14/swift-calculator',
+      appstore: 'https://github.com/user-attachments/assets/4fe0f8a4-e633-48af-8bfa-35e84f8daa48' // Video demo link
+    },
+
+    {
+      id: 5,
+      title: 'FitTrack',
+      description: 'Fitness tracking app with HealthKit integration, custom workout plans, and social sharing features.',
+      tech: ['SwiftUI', 'HealthKit', 'Firebase', 'Charts'],
+      image: '/api/placeholder/400/250',
+      github: 'https://github.com/Jeffrey-14',
+      appstore: 'https://apps.apple.com/app/fittrack'
+    }
+  ]
+
+
+  const experience = [
+    {
+      company: 'TechCorp Inc.',
+      position: 'Senior iOS Developer',
+      duration: '2022 - Present',
+      description: 'Lead iOS development team of 4 developers. Built and maintained 3 production apps with 500K+ downloads.',
+      achievements: [
+        'Increased app performance by 40% through code optimization',
+        'Implemented CI/CD pipeline reducing deployment time by 60%',
+        'Mentored junior developers and conducted code reviews'
+      ]
+    },
+    {
+      company: 'StartupX',
+      position: 'iOS Developer',
+      duration: '2020 - 2022',
+      description: 'Developed MVP and scaled iOS application from 0 to 100K users. Worked closely with product and design teams.',
+      achievements: [
+        'Built core app architecture from scratch',
+        'Integrated payment systems and push notifications',
+        'Achieved 4.8 star rating on App Store'
+      ]
+    },
+    {
+      company: 'Freelance',
+      position: 'iOS Consultant',
+      duration: '2018 - 2020',
+      description: 'Provided iOS development services to various clients, from startups to established businesses.',
+      achievements: [
+        'Delivered 8+ successful app projects',
+        'Specialized in SwiftUI early adoption',
+        'Built long-term client relationships'
+      ]
+    }
+  ]
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId)
@@ -203,21 +216,27 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">Technical Skills</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {skills.map((skill) => (
-              <div key={skill.name} className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
-                <div className="flex items-center mb-4">
-                  <skill.icon className="w-8 h-8 mr-3 text-blue-400" />
-                  <span className="text-white font-semibold text-lg">{skill.name}</span>
-                  <span className="ml-auto text-white/70">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-white/10 rounded-full h-2">
-                  <div 
-                    className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000"
-                    style={{ width: `${skill.level}%` }}
-                  />
-                </div>
-              </div>
-            ))}
+
+          {skills.map((skill, index) => (
+            <div key={skill.name} className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
+              <div className="flex items-center mb-4">
+              <skill.icon className="w-8 h-8 mr-3 text-blue-400" />
+              <span className="text-white font-semibold text-lg">{skill.name}</span>
+              <span className="ml-auto text-white/70">{skill.level}%</span>
+            </div>
+            <div className="w-full bg-white/10 rounded-full h-2">
+              <div 
+                className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-2000 ease-out"
+                style={{ 
+                width: `${skill.level}%`,
+                animationDelay: `${index * 200}ms`,
+                animation: `loadSkill 2s ease-out ${index * 200}ms forwards`
+              }}
+            />
+          </div>
+        </div>
+      ))}
+
           </div>
         </div>
       </section>
