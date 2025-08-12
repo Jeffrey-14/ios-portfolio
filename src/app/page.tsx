@@ -147,6 +147,28 @@ export default function Portfolio() {
   }
 
   return (
+    <>
+      {/* Add CSS for skill bar animations */}
+      <style jsx global>{`
+        @keyframes skillFillUp {
+          from {
+            width: 0%;
+          }
+          to {
+            width: var(--target-width);
+          }
+        }
+        
+        .skill-bar {
+          animation: skillFillUp 2s ease-out forwards;
+          width: 0%;
+        }
+        
+        .skill-bar.loaded {
+          animation-play-state: running;
+        }
+      `}</style>
+
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-black/20 backdrop-blur-md z-50 border-b border-white/10">
@@ -224,13 +246,14 @@ export default function Portfolio() {
               <span className="text-white font-semibold text-lg">{skill.name}</span>
               <span className="ml-auto text-white/70">{skill.level}%</span>
             </div>
-            <div className="w-full bg-white/10 rounded-full h-2">
+            <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden">
               <div 
-                className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-2000 ease-out"
+                className={`bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full transition-all duration-[2000ms] ease-out ${
+                  skillsLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
                 style={{ 
-                width: `${skill.level}%`,
-                animationDelay: `${index * 200}ms`,
-                animation: `loadSkill 2s ease-out ${index * 200}ms forwards`
+                  width: skillsLoaded ? `${skill.level}%` : '0%',
+                  transitionDelay: `${index * 300}ms`
               }}
             />
           </div>
@@ -369,6 +392,7 @@ export default function Portfolio() {
           <p className="text-white/50">© 2024 iOS Engineer Portfolio</p>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   )
 }
