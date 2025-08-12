@@ -163,8 +163,12 @@ export default function Portfolio() {
       <section id="about" className="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <div className="w-40 h-40 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8 flex items-center justify-center text-6xl font-bold text-white">
-              JTM
+            <div className="w-40 h-40 rounded-full max-auto mb-8 overflow-hidden border-4 border-white/20 shadow-2xl">
+              <img
+                src="/images/professional-headshot.jpg"
+                alt="Professional headshot"
+                className="w-full h-full object-cover"
+              />
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
               Welcome to my Portfolio
