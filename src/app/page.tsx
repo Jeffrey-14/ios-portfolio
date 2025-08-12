@@ -45,8 +45,19 @@ const projects = [
     github: 'https://github.com/Jeffrey-14',
     appstore: 'https://apps.apple.com/app/weatherwise'
   },
+
   {
     id: 3,
+    title: 'Professional Headshot Editor',
+    description: 'A web-based image editing tool built with HTML5 Canvas API, JavaScript, and CSS. Features real-time image enhancement, professional cropping, and client-side processing for privacy.',
+    tech: ['JavaScript', 'HTML5 Canvas', 'CSS3', 'File API'],
+    image: '/api/placeholder/400/250',
+    github: 'https://github.com/Jeffrey-14/headshot-editor',
+    appstore: '#' // You can remove this line or point to a live demo
+  },
+
+  {
+    id: 4,
     title: 'FitTrack',
     description: 'Fitness tracking app with HealthKit integration, custom workout plans, and social sharing features.',
     tech: ['SwiftUI', 'HealthKit', 'Firebase', 'Charts'],
